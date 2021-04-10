@@ -1,0 +1,12 @@
+CREATE TABLE portfolio
+(
+    id            BIGINT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    title         VARCHAR(255) NOT NULL,
+    preview_image VARCHAR(255) NOT NULL,
+    image         VARCHAR(255) NOT NULL,
+    description   MEDIUMTEXT   NOT NULL,
+    link          VARCHAR(255) NOT NULL,
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at    DATETIME  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at    TIMESTAMP NULL DEFAULT NULL
+);
