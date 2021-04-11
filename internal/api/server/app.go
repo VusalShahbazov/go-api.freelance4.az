@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"github.com/VusalShahbazov/api.freelance4.az/internal/models"
 	"github.com/VusalShahbazov/api.freelance4.az/internal/services/migrations"
 	"github.com/VusalShahbazov/api.freelance4.az/internal/services/validations"
@@ -11,9 +12,15 @@ import (
 
 func (s *ApiServer) Run() error {
 
+	ginMode := os.Getenv("APP_MODE")
+	if ginMode == "" {
+		ginMode = gin.ReleaseMode
+	}
+	gin.SetMode(ginMode)
+
 	s.Engine =  gin.Default()
 
-	time.Sleep(10 * time.Second)
+	time.Sleep(time.Second * 5)
 	models.ConnectToDatabase()
 
 	s.InitRoutes()
@@ -26,5 +33,5 @@ func (s *ApiServer) Run() error {
 		return err
 	}
 
-	return s.Engine.Run(os.Getenv("API_PORT"))
+	return s.Engine.Run(fmt.Sprintf(":%v" ,  os.Getenv("API_PORT")))
 }

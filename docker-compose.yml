@@ -35,6 +35,6 @@ services:
     env_file:
       - .env
     ports:
-      - "80:3000"
+      - "80:${API_PORT}"
 volumes:
   my-db:
