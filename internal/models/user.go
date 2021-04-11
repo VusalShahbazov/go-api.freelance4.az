@@ -13,7 +13,6 @@ type User struct {
 	Password string `json:"-"`
 	PhoneNumber *string `json:"phone_number"`
 	Avatar *string `json:"avatar"`
-	Verified bool `json:"verified"`
 	IsFreelancer bool `json:"is_freelancer"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
