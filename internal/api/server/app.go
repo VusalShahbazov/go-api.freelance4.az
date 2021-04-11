@@ -12,11 +12,11 @@ import (
 
 func (s *ApiServer) Run() error {
 
-	ginMode := os.Getenv("APP_MODE")
-	if ginMode == "" {
-		ginMode = gin.ReleaseMode
-	}
-	gin.SetMode(ginMode)
+	//ginMode := os.Getenv("APP_MODE")
+	//if ginMode == "" {
+	//	ginMode = gin.ReleaseMode
+	//}
+	//gin.SetMode(ginMode)
 
 	s.Engine =  gin.Default()
 
